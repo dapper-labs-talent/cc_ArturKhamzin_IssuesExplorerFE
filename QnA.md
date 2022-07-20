@@ -4,15 +4,18 @@
 
 > What do you think are the greatest areas of risk in completing the project?
 
--
+- Learning how to use Github API and its pagination might take much time and there is a risk to not finish functional part (I'm thinking about a repository with big amount of issues: how to filter by issue type if not loaded all of them)
 
 > What changes/additions would you make to the design?
 
--
+- looks good for MVP
 
 > List a two or three features that you would consider implementing in the future that would add significant value to the project.
 
--
+- sorting
+- filtering by specific user
+- switching by layout: tiles (as in wireframes design) or table view
+- refactor MVP version and/or address bugs
 
 ---
 
