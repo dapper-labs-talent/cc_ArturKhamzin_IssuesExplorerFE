@@ -1,9 +1,34 @@
-import { useParams } from "react-router";
+import { useCallback, useState } from "react";
+import classNames from "classnames";
+import { useNavigate, useParams } from "react-router";
+import './index.css';
+import { APP_ROUTES } from "../../App";
+import IssuesList from "../../components/IssuesList/IssuesList";
+
+const ISSUE_STATES = {
+    all: 'All issues',
+    open: 'Open issues',
+    closed: 'Closed issues',
+    pr: 'Pull Requests',
+}
+const issuesStates = Object.keys(ISSUE_STATES);
 
 function IssuesViewerPage() {
-    let params = useParams();
-    const { repoOwner, repoName } = params;
-    console.log(params);
+    const routerParams = useParams();
+    const navigate = useNavigate();
+    const [stateFilter, setStateFilter] = useState('all');
+
+    const { repoOwner, repoName } = routerParams;
+    console.log(routerParams);
+
+    const onClose = useCallback(() => navigate(APP_ROUTES.HOME), [navigate]);
+    const onStateSelect = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
+        const key = (event.target as HTMLButtonElement).dataset.issueKey;
+        console.log(key)
+        if (key) {
+            setStateFilter(key);
+        }
+    }, [])
 
     if (!repoOwner || !repoName) {
         return (
@@ -12,7 +37,38 @@ function IssuesViewerPage() {
     }
 
     return (
-        <div>Viewer page, owner: {repoOwner}, repo: {repoName} </div>
+        <div className="viewer-page">
+            <header>
+                <h1>GitHub Issue Viewer</h1>
+                <div>
+                    https://github.com/{repoOwner}/{repoName}
+                </div>
+            </header>
+
+            <div className="sub-header">
+                <div className="issues-states">
+                    {issuesStates.map((key) => {
+                        const name = (ISSUE_STATES as { [key: string]: string })[key];
+                        return (
+                            <button
+                                key={key}
+                                data-issue-key={key}
+                                onClick={e => onStateSelect(e)}
+                                className={classNames('issue-state', {
+                                    'issue-state-selected': stateFilter === key
+                                })}>
+                                {name}
+                            </button>
+                        );
+                    })}
+                </div>
+                <div>
+                    <button onClick={onClose}>X</button>
+                </div>
+            </div>
+
+            <IssuesList />
+        </div>
     );
 }
 
