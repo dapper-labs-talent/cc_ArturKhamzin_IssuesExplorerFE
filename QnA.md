@@ -23,24 +23,25 @@
 
 > Describe the major design/build decisions and why you made them.
 
--
+- use create-react-app to bootstrapp project to save time.
 
 > How long did the assignment take (in hours)? Please break down your answer into buckets (e.g. "Learning Framework", "Coding", "Debugging").
 
--
+- 4 hours
 
 > If you could go back and give yourself advice at the beginning of the project, what would it be?
 
--
+- focus on functional part first, don't spend too much time with css, reading github api, thinking about how to design pagination and etc.
+- don't use react-query... (took much of time to setup)
 
 > Did you learn anything new?
 
--
+- apparently create-react-app already supports `dotenv` out of the box, so next time I would not spend time configuring it.
 
 > Do you feel that this assignment allowed you to showcase your abilities effectively?
 
--
+- I don't think so, due to time constraints.
 
 > Are there any significant web development-related skills that you possess that were not demonstrated in this exercise? If so, what are they?
 
--
+- didn't have time to use much CSS (and media-queries)
