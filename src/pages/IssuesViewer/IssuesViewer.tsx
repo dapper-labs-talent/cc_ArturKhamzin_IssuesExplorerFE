@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router";
 import './index.css';
 import { APP_ROUTES } from "../../App";
 import IssuesList from "../../components/IssuesList/IssuesList";
+import useIssues from "../../api/issues";
 
 export const ISSUE_STATES = {
     all: 'All issues',
@@ -17,9 +18,12 @@ function IssuesViewerPage() {
     const routerParams = useParams();
     const navigate = useNavigate();
     const [stateFilter, setStateFilter] = useState('all');
-
-    const { repoOwner, repoName } = routerParams;
-    console.log(routerParams);
+    const { repoOwner = '', repoName = '' } = routerParams;
+    const itemsList = useIssues({
+        owner: repoOwner,
+        repo: repoName,
+        state: stateFilter,
+    });
 
     const onClose = useCallback(() => navigate(APP_ROUTES.HOME), [navigate]);
     const onStateSelect = useCallback((event: React.MouseEvent<HTMLButtonElement>) => {
@@ -52,6 +56,7 @@ function IssuesViewerPage() {
                         return (
                             <button
                                 key={key}
+                                disabled={key === 'pr'}
                                 data-issue-key={key}
                                 onClick={e => onStateSelect(e)}
                                 className={classNames('issue-state', {
@@ -67,7 +72,7 @@ function IssuesViewerPage() {
                 </div>
             </div>
 
-            <IssuesList />
+            <IssuesList items={itemsList} />
         </div>
     );
 }

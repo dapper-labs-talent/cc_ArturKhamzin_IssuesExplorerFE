@@ -1,9 +1,21 @@
 import './index.css';
 
-function IssuesList() {
+interface GithubIssue {
+    id: string;
+    title: string;
+}
+
+interface IProps {
+    items: GithubIssue[];
+}
+
+function IssuesList(props: IProps) {
+    const { items } = props;
     return (
         <div className="issues-list">
-            issues-list component
+            {items.map((item) =>
+                <div key={item.id}>{item.title}</div>
+            )}
         </div>
     );
 }
