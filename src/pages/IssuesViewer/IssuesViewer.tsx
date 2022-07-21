@@ -5,7 +5,7 @@ import './index.css';
 import { APP_ROUTES } from "../../App";
 import IssuesList from "../../components/IssuesList/IssuesList";
 
-const ISSUE_STATES = {
+export const ISSUE_STATES = {
     all: 'All issues',
     open: 'Open issues',
     closed: 'Closed issues',
