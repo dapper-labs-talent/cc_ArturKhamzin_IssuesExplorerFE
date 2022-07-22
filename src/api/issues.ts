@@ -15,7 +15,9 @@ function useIssues(params: IParams) {
     useEffect(() => {
         setIsLoading(true);
 
-        const endpoint = `/${owner}/${repo}/issues?state=${state}`;
+        const suffix = state === 'pr' ? 'pulls' : 'issues';
+        const stateNormalized = state === 'pr' ? 'all' : state;
+        const endpoint = `/${owner}/${repo}/${suffix}?state=${stateNormalized}`;
 
         // todo: cache fetched results (actually, just use react-query)
         githubFetcher(endpoint).then((data) => {

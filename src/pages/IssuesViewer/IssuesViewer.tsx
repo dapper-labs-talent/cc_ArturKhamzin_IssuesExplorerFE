@@ -57,8 +57,6 @@ function IssuesViewerPage() {
                             return (
                                 <button
                                     key={key}
-                                    disabled={key === 'pr'}
-                                    title={key === 'pr' ? 'TODO' : ''}
                                     data-issue-key={key}
                                     onClick={e => onStateSelect(e)}
                                     className={classNames('issue-state', {
