@@ -60,3 +60,18 @@
 .issue-labels li:not(:last-child) {
     margin-right: 10px;
 }
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .issue-card {
+        width: 100%;
+    }
+
+    .issue-labels {
+        flex-wrap: wrap;
+    }
+
+    .issue-labels li {
+        margin: 2px;
+    }
+
+}
