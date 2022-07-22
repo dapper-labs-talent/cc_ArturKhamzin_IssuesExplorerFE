@@ -2,3 +2,7 @@
     max-width: 1440px;
     margin: 0 auto;
 }
+
+.text-muted {
+    opacity: 0.6;
+}

@@ -49,30 +49,34 @@ function IssuesViewerPage() {
                 </div>
             </header>
 
-            <div className="sub-header">
-                <div className="issues-states">
-                    {issuesStates.map((key) => {
-                        const name = (ISSUE_STATES as { [key: string]: string })[key];
-                        return (
-                            <button
-                                key={key}
-                                disabled={key === 'pr'}
-                                data-issue-key={key}
-                                onClick={e => onStateSelect(e)}
-                                className={classNames('issue-state', {
-                                    'issue-state-selected': stateFilter === key
-                                })}>
-                                {name}
-                            </button>
-                        );
-                    })}
+            <div className="viewer-content">
+                <div className="sub-header">
+                    <div className="issues-states">
+                        {issuesStates.map((key) => {
+                            const name = (ISSUE_STATES as { [key: string]: string })[key];
+                            return (
+                                <button
+                                    key={key}
+                                    disabled={key === 'pr'}
+                                    title={key === 'pr' ? 'TODO' : ''}
+                                    data-issue-key={key}
+                                    onClick={e => onStateSelect(e)}
+                                    className={classNames('issue-state', {
+                                        'issue-state-selected': stateFilter === key
+                                    })}>
+                                    {name}
+                                </button>
+                            );
+                        })}
+                    </div>
+                    <div>
+                        <button onClick={onClose}>X</button>
+                    </div>
                 </div>
-                <div>
-                    <button onClick={onClose}>X</button>
-                </div>
-            </div>
 
-            <IssuesList items={itemsList} />
+                <IssuesList items={itemsList} />
+
+            </div>
         </div>
     );
 }
