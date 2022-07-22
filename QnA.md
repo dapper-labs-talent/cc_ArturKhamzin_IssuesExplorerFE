@@ -27,7 +27,7 @@
 
 > How long did the assignment take (in hours)? Please break down your answer into buckets (e.g. "Learning Framework", "Coding", "Debugging").
 
-- 4 hours
+- 4 hours+
 
 > If you could go back and give yourself advice at the beginning of the project, what would it be?
 
