@@ -19,7 +19,7 @@ function IssuesViewerPage() {
     const navigate = useNavigate();
     const [stateFilter, setStateFilter] = useState('all');
     const { repoOwner = '', repoName = '' } = routerParams;
-    const itemsList = useIssues({
+    const { list: itemsList, isLoading } = useIssues({
         owner: repoOwner,
         repo: repoName,
         state: stateFilter,
@@ -74,8 +74,10 @@ function IssuesViewerPage() {
                     </div>
                 </div>
 
-                <IssuesList items={itemsList} />
+                {/* TODO: for loading state show 'skeleton' of 3x3 cards */}
+                {isLoading ? <div className="no-content-state">Loading...</div> : <IssuesList items={itemsList} />}
 
+                {!isLoading && itemsList.length === 0 ? <div className="no-content-state">No results</div> : null}
             </div>
         </div>
     );

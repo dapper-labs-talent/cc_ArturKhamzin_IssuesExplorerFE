@@ -35,3 +35,9 @@
 .issue-state-selected {
     border-bottom: 1px solid #ccc;
 }
+
+.no-content-state {
+    height: 100%;
+    margin-top: 50px;
+    text-align: center;
+}
