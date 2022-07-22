@@ -40,12 +40,14 @@ function IssuesViewerPage() {
         )
     }
 
+    const repoUrl = `https://github.com/${repoOwner}/${repoName}`;
+
     return (
         <div className="viewer-page">
             <header>
                 <h1>GitHub Issue Viewer</h1>
                 <div>
-                    https://github.com/{repoOwner}/{repoName}
+                    <a href={repoUrl} target="_blank" rel="noreferrer">{repoUrl}</a>
                 </div>
             </header>
 

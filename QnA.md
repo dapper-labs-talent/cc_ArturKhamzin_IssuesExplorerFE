@@ -27,21 +27,24 @@
 
 > How long did the assignment take (in hours)? Please break down your answer into buckets (e.g. "Learning Framework", "Coding", "Debugging").
 
-- 4 hours+
+- ~6hours in 2 attempts: 4h + ~2h
 
 > If you could go back and give yourself advice at the beginning of the project, what would it be?
 
 - focus on functional part first, don't spend too much time with css, reading github api, thinking about how to design pagination and etc.
-- don't use react-query... (took much of time to setup)
+- you can start without react-query in the beginning and make it simple
 
 > Did you learn anything new?
 
-- apparently create-react-app already supports `dotenv` out of the box, so next time I would not spend time configuring it.
+- apparently create-react-app already supports `dotenv` out of the box, so next time I would not need to spend time configuring it.
 
 > Do you feel that this assignment allowed you to showcase your abilities effectively?
 
-- I don't think so, due to time constraints.
+- I don't think so, due to time constraints. It's like trade-off: either make MVP based on requirements or start project with well-thought architecture. Not always it's possible to use best practices if there is limitation by time.
 
 > Are there any significant web development-related skills that you possess that were not demonstrated in this exercise? If so, what are they?
 
-- didn't have time to use much CSS (and media-queries)
+- debugging issues
+- designing REST api
+- creating mocks for rest api
+- ...
